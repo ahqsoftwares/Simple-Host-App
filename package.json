@@ -1,0 +1,17 @@
+{
+  "name": "simple-host-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Alert: Starting Development\" && electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^18.0.4",
+    "electron-builder": "^23.0.3",
+    "electron-forge": "^5.2.4"
+  }
+}
