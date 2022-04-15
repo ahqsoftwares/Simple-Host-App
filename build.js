@@ -4,6 +4,9 @@ module.exports = {
     appId: "com.simplehost.desktop",
     copyright: `© ${new Date().getFullYear()} Simple Host - AHQ Softwares`,
     publish: ["github"],
+    directories: {
+        output: "builds/app"
+    },
     win: {
         target: ["nsis", "zip"]
     },
