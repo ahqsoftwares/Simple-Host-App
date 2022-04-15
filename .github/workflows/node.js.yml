@@ -24,7 +24,7 @@ jobs:
               run: npm i . --force
 
             - name: Publish
-              run: npm run-script build --x64 --ia32 -w
+              run: npm run-script --workspace=true build --x64 --ia32 -w
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -42,7 +42,7 @@ jobs:
               run: npm i . --force
 
             - name: Publish
-              run: npm run-script build --workspace=true --x64 --ia32 -l
+              run: npm run-script build --x64 --ia32 -l
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
