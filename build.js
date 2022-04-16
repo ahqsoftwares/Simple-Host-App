@@ -21,15 +21,9 @@ module.exports = {
         target: ["AppImage", "zip"],
         icon: "src/modules/images/icon.png"
     },
-    AppImage: {
-        icon: "src/modules/images/icon.png"
-    },
     mac: {
         target: ["dmg", "zip"],
         category: "public.app-category.utilities",
-        icon: "src/modules/images/icon.png"
-    },
-    dmg: {
         icon: "src/modules/images/icon.png"
     },
     generateUpdatesFilesForAllChannels: true
