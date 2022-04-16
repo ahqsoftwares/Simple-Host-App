@@ -8,18 +8,29 @@ module.exports = {
         output: "builds/app"
     },
     win: {
-        target: ["nsis", "zip"]
+        target: ["nsis", "zip"],
+        icon: "src/modules/images/icon.ico"
     },
     nsis: {
         oneClick: false,
-        allowToChangeInstallationDirectory: true
+        allowToChangeInstallationDirectory: true,
+        installerIcon: "src/modules/images/icon.ico",
+        uninstallerIcon: "src/modules/images/icon.ico"
     },
     linux: {
-        target: ["AppImage", "zip"]
+        target: ["AppImage", "zip"],
+        icon: "src/modules/images/icon.png"
+    },
+    AppImage: {
+        icon: "src/modules/images/icon.png"
     },
     mac: {
         target: ["dmg", "zip"],
-        category: "public.app-category.utilities"
+        category: "public.app-category.utilities",
+        icon: "src/modules/images/icon.png"
+    },
+    dmg: {
+        icon: "src/modules/images/icon.png"
     },
     generateUpdatesFilesForAllChannels: true
 };

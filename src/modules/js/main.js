@@ -24,9 +24,12 @@ minimiseBTN.addEventListener("click", () => {
  */
 dockBTN.addEventListener("click", () => {
     ipc.send("dockApp");
-    if (dockBTN.innerText == "◱") {
-        dockBTN.innerText = "▢"
-    } else {
-        dockBTN.innerText = "◱"
-    }
+});
+
+ipc.send("loadedMain");
+ipc.on("max", () => {
+    dockBTN.innerText = "◱"
+});
+ipc.on("min", () => {
+    dockBTN.innerText = "▢"
 });

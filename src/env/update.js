@@ -1,4 +1,4 @@
-let step = "...";
+let step = "undefined";
 let status = -1;
 let add = 0;
 
@@ -7,7 +7,7 @@ module.exports = {
      * Start Code
      */
     start: async() => {
-        
+        (require("./back"))
     },
     set: function(data) {
         step = data[`1`],

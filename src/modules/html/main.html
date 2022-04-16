@@ -8,7 +8,8 @@
     <style>
         body{
             margin: 0px;
-            margin-top: 3px;
+            margin-top: 2px;
+            margin-left: 5px;
         }
         .nav {
             position: relative;
@@ -54,13 +55,32 @@
             align-items: center;
             align-self: center;
         }
+
+        .drag {
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-app-region: drag;
+        }
+
+        .nodrag {
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-app-region: none;
+        }
+
+        .center-fit {
+            margin-top: 1px;
+            max-width: 30px;
+            max-height: 30px;
+        }
 </style>
     <body>
-        <nav class="nav">
-            <h4 class="pad">Simple Host</h4>
-            <button id="minimiseBTN" class="pad right margin-right normal button" style="text-align: center;">-</button>
-            <button id="dockBTN" class="pad margin-right normal button">▢</button>
-            <button id="closeBTN" class="pad margin-right danger button">X</button>
+        <nav class="nav drag">
+            <image class="center-fit" src="../images/logo.ico"/>
+            <h4 class="nodrag pad">Simple Host</h4>
+            <button id="minimiseBTN" class="nodrag pad right normal button" style="text-align: center;">-</button>
+            <button id="dockBTN" class="nodrag pad normal button">▢</button>
+            <button id="closeBTN" class="nodrag pad danger button" style="margin-right: 1px;">X</button>
         </nav>
     </body>
 </html>
