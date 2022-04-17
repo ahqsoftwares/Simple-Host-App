@@ -45,7 +45,7 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
         }
         const dl = new downloader({
             url: zip['browser_download_url'],
-            saveto: `C:${process.env.HOMEPATH}`
+            saveto: `${process.cwd()}`
         });
 
         dl.on("start", () => {
@@ -71,7 +71,7 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
                 "2": -1,
                 "3": 0
             });
-            var ezip = new AdmZip(process.env.HOMEPATH + "\\" + zip[`name`]);
+            var ezip = new AdmZip(process.cwd + "\\" + zip[`name`]);
             ezip.getEntries().forEach(async(entry) => {
                 try {
                     ezip.extractEntryTo(entry, process.cwd(), true, true)
@@ -85,11 +85,17 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
                     });
                 }
             });
+            setTimeout(function(){
+
+            }, 2000);
             set({
-                "1": `Restart App`,
+                "1": `Open App, After Its Closed!`,
                 "2": -1,
                 "3": 0
             });
+            setTimeout(function(){
+
+            }, 2000);
             fs.unlink(process.env.HOMEPATH + "\\" + zip[`name`], function(err) {
                 if (err) console.log(err);
                 ipcRenderer.send("closeApp");
