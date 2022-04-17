@@ -44,8 +44,7 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
             if (json['assets'][i]['name'].endsWith(platformsNames[os.platform()])) zip = json['assets'][i];
         }
         const dl = new downloader({
-            url: zip['browser_download_url'],
-            saveto: __dirname
+            url: zip['browser_download_url']
         });
 
         dl.on("start", () => {
