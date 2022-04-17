@@ -79,7 +79,7 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
                     let skipped = 0;
                     skipped += 1;
                     set({
-                        "1": `Skilled ${skipped} files on install...`,
+                        "1": `Skipped ${skipped} files on install...`,
                         "2": -1,
                         "3": 0
                     });
