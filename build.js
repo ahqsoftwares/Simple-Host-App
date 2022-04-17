@@ -5,26 +5,24 @@ module.exports = {
     copyright: `© ${new Date().getFullYear()} Simple Host - AHQ Softwares`,
     publish: ["github"],
     directories: {
-        output: "builds/app"
+        output: "builds/app",
+        buildResources: "rsc/app"
     },
     win: {
-        target: ["nsis", "zip"],
-        icon: "src/modules/images/icon.ico"
+        target: ["nsis", "zip"]
     },
     nsis: {
         oneClick: false,
         allowToChangeInstallationDirectory: true,
-        installerIcon: "src/modules/images/icon.ico",
-        uninstallerIcon: "src/modules/images/icon.ico"
+        installerIcon: "src/modules/images/logo.ico",
+        uninstallerIcon: "src/modules/images/logo.ico"
     },
     linux: {
-        target: ["AppImage", "zip"],
-        icon: "src/modules/images/icon.png"
+        target: ["AppImage", "zip"]
     },
     mac: {
         target: ["dmg", "zip"],
-        category: "public.app-category.utilities",
-        icon: "src/modules/images/icon.png"
+        category: "public.app-category.utilities"
     },
     generateUpdatesFilesForAllChannels: true
 };

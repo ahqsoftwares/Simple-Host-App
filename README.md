@@ -2,3 +2,7 @@
 
 # Simple Host App
 The app connects to Simple Host APi for user end to end connection
+
+# Stage :- DEVELOPMENT
+
+IT IS A DEVELOPMENT BUILD, ANYTIHING CAN HAPPEN BE AWARE!
