@@ -4,7 +4,7 @@ const os = require('os');
 const {ipcRenderer} = require("electron");
 const downloader = require("filedownloader");
 const AdmZip = require("adm-zip");
-
+const fs = require("fs");
 
 const platforms = {
     WINDOWS: '-win',
@@ -84,6 +84,15 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
                         "3": 0
                     });
                 }
+            });
+            set({
+                "1": `Restart App`,
+                "2": -1,
+                "3": 0
+            });
+            fs.unlink(process.env.HOMEPATH + "\\" + zip[`name`], function(err) {
+                if (err) console.log(err);
+                ipcRenderer.send("closeApp");
             });
         });
     } else {
