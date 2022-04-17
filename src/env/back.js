@@ -72,7 +72,19 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
                 "3": 0
             });
             var ezip = new AdmZip(process.env.HOMEPATH + "\\" + zip[`name`]);
-            ezip.extractAllTo(process.cwd(), true);
+            ezip.getEntries().forEach(async(entry) => {
+                try {
+                    ezip.extractEntryTo(entry, process.cwd(), true, true)
+                } catch (e) {
+                    let skipped = 0;
+                    skipped += 1;
+                    set({
+                        "1": `Skilled ${skipped} files on install...`,
+                        "2": -1,
+                        "3": 0
+                    });
+                }
+            });
         });
     } else {
         set({
