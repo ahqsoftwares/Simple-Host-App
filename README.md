@@ -3,6 +3,6 @@
 # Simple Host App
 The app connects to Simple Host APi for user end to end connection
 
-# Stage :- DEVELOPMENT
+# Stage :- BETA
 
-IT IS A DEVELOPMENT BUILD, ANYTIHING CAN HAPPEN BE AWARE!
+The Version is now kinda a little stable, still features not added completely

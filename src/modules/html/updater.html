@@ -9,6 +9,9 @@
         body{
             margin: 0px;
             margin-top: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-app-region: drag;
         }
         .nav {
             position: inherit;
@@ -70,12 +73,12 @@
 </style>
     <body>
         <div class="a">
-            <h1>Simple Host App Updater</h1>
+            <image src="../images/logo.ico" width="100px"></image>
         </div>
         <div class="status">
             <div style="margin-top: 50px;"></div>
             <h3 id="ver"></h3>
-            <h3 id="update">Status: Checking</h3>
+            <h3 id="update">Checking</h3>
             <progress id="bar" max="100">Hi</progress>
         </div>
     </body>

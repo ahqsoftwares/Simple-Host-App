@@ -1,0 +1,1 @@
+Copyright © AHQ Softwares @ Simple Host

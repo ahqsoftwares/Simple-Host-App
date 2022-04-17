@@ -2,7 +2,7 @@ module.exports = {
     extends: null,
     productName: "Simple Host Desktop",
     appId: "com.simplehost.desktop",
-    copyright: `© ${new Date().getFullYear()} Simple Host - AHQ Softwares`,
+    copyright: `© ${new Date().getFullYear()} AHQ Softwares @ Simple Host`,
     publish: ["github"],
     directories: {
         output: "builds/app",

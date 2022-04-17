@@ -21,7 +21,7 @@
             margin-top: 0px;
             position: relative;
             margin-bottom: 3%;
-            background-color: rgb(0, 0, 0);
+            background-color: black;
             color: blue;
         }
 
@@ -65,7 +65,7 @@
         }
 
         .normal:active, .normal:hover {
-            background-color: grey;
+            background-color: rgba(75, 71, 71, 0.194);
             border-color: none;
             border-style: none;
         }
@@ -109,18 +109,26 @@
         .darkbtn {
             color: black;
         }
+
+        .darktext {
+            color: white;
+        }
+
+        .lighttext {
+            color: black;
+        }
 </style>
     <body id="lightdark" class="">
         <nav id="mainnav" class="nav drag">
             <image class="center-fit" src="../images/logo.ico"/>
-            <h4 class="pad center-float">Simple Host</h4>
+            <h4 id="header" class="pad center-float darktext">Simple Host</h4>
             <button id="mode" class="nodrag pad normal button bolder" style="text-align: center; margin-top: 2px;">🌒</button>
             <button id="minimiseBTN" class="nodrag pad right normal button" style="text-align: center;">-</button>
             <button id="dockBTN" class="nodrag pad normal button">▢</button>
             <button id="closeBTN" class="nodrag pad danger button" style="margin-right: 1px;">X</button>
         </nav>
         <div class="content">
-            <h4>Coming Soon!</h4>
+            <h4 style="color: blue;">Coming Soon in a future update!</h4>
         </div>
     </body>
 </html>

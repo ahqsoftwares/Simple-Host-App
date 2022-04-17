@@ -1,5 +1,5 @@
 const {app, BrowserWindow, ipcMain} = require("electron");
-const {gimme} = require("./env/update");
+require('electron-reload')(__dirname);
 /**
  * Main
  */
@@ -21,12 +21,6 @@ app.whenReady().then(async() => {
             contextIsolation: false,
             devTools: true
         }
-    });
-    ipcMain.on("updateApp", () => {
-        updater.loadFile("./src/modules/html/close.html")
-    });
-    ipcMain.on("rApp", () => {
-        updater.loadFile("./src/modules/html/updater.html");
     });
     updater.loadFile("./src/modules/html/updater.html");
 

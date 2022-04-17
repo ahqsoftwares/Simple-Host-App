@@ -1,0 +1,1 @@
+The Application is not liable for reuse/sale without the permission of the author or the credits not mentioned!

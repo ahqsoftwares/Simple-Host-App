@@ -50,7 +50,7 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
     let version = json[`tag_name`].split(".");
     let pkgver = require("../../package.json").version.split(".");
 
-    if (version.join(".") !== pkgver.join(".")) {
+    if (`${version[0]}.${version[1]}${version[2]}` > `${pkgver[0]}.${pkgver[1]}${pkgver[2]}`) {
         set({
             "1": `${("type").replace("type", (String(version[0] > pkgver[0]).replace("true", "Major").replace("false", (String(version[1] > pkgver[1]).replace("true", "Minor").replace("false", "Patch")))))} Update Available`,
             "2": status,

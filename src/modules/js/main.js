@@ -8,6 +8,8 @@ const ipc = ipcRenderer;
 mode.addEventListener("click", () => {
     if (mode.innerHTML != "☀") {
         mode.innerHTML = "☀";
+        header.classList.remove("darktext");
+        header.classList.add("lighttext");
         lightdark.classList.add("dark");
         mainnav.classList.add("navdark");
         const data = document.getElementsByClassName("button");
@@ -15,6 +17,8 @@ mode.addEventListener("click", () => {
             data[i].classList.add(`darkbtn`);
         }
     } else {
+        header.classList.add("darktext");
+        header.classList.remove("lighttext");
         lightdark.classList.remove("dark");
         mainnav.classList.remove("navdark");
         const data = document.getElementsByClassName("button");

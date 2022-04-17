@@ -1,9 +1,13 @@
+/*
+Driver Default Data
+*/
 let step = "undefined";
 let status = -1;
 let add = 0;
 
-var window;
-
+/**
+ * Driver Exports
+ */
 module.exports = {
     /**
      * Start Code
@@ -11,13 +15,17 @@ module.exports = {
     start: async() => {
         (require("./back"))
     },
+    /**
+     * Set data in driver
+     * @param {*} data 
+     */
     set: function(data) {
         step = data[`1`],
         status = data[`2`],
         add = data[`3`]
     },
     /**
-     * Get Status From Updater
+     * Get Data From Background Process
     */
     getStatus: async function() {
         return {
