@@ -1,6 +1,6 @@
 {
   "name": "simple-host-app",
-  "version": "v0.0.6",
+  "version": "v0.1.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -20,6 +20,8 @@
     "filedownloader": "^1.2.7",
     "node-fetch": "^2.6.7",
     "octokit": "^1.7.1",
+    "os": "^0.1.2",
+    "shelljs": "^0.8.5",
     "uaup-js": "^0.0.22"
   }
 }

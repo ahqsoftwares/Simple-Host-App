@@ -1,9 +1,31 @@
 const {ipcRenderer} = require("electron");
-
+console.log(lightdark.classList);
 const ipc = ipcRenderer;
 
 /**
- * Clock App
+ * Dark Mode
+ */
+mode.addEventListener("click", () => {
+    if (mode.innerHTML != "☀") {
+        mode.innerHTML = "☀";
+        lightdark.classList.add("dark");
+        mainnav.classList.add("navdark");
+        const data = document.getElementsByClassName("button");
+        for(i = 0; i < data.length; i++){
+            data[i].classList.add(`darkbtn`);
+        }
+    } else {
+        lightdark.classList.remove("dark");
+        mainnav.classList.remove("navdark");
+        const data = document.getElementsByClassName("button");
+        for(i = 0; i < data.length; i++){
+            data[i].classList.remove(`darkbtn`);
+        }
+        mode.innerHTML = "🌒";
+    }
+});
+/**
+ * Close App
  * @param {} click
  */
 closeBTN.addEventListener("click", () => {

@@ -2,6 +2,8 @@ let step = "undefined";
 let status = -1;
 let add = 0;
 
+var window;
+
 module.exports = {
     /**
      * Start Code

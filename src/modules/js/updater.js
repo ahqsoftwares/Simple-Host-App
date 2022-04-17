@@ -1,4 +1,5 @@
 const {getStatus, start} = require("../../env/update");
+ver.innerHTML = `Version: ${require("../../../package.json").version.replace("v", "")}`
 start()
 
     setInterval(async function() {

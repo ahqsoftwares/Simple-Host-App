@@ -8,18 +8,43 @@
     <style>
         body{
             margin: 0px;
-            margin-top: 2px;
-            margin-left: 5px;
+            margin-top: 0px;
+            margin-left: 0px;
         }
+
+        .dark {
+            background-color: black;
+        }
+
         .nav {
+            margin-left: 0px;
+            margin-top: 0px;
             position: relative;
             margin-bottom: 3%;
+            background-color: rgb(0, 0, 0);
+            color: blue;
         }
+
+        .navdark {
+            position: relative;
+            margin-bottom: 3%;
+            background-color: white;
+            color: blue;
+        }
+
         .right{
             text-align: right;
             float: left;
             margin-left: auto;
         }
+
+        .center-float{
+            text-align: center;
+            float: center;
+            margin: auto;
+            margin-right: 1px;
+        }
+
         .pad{
             padding: 2px;
         }
@@ -34,8 +59,9 @@
             width: height;
             text-anchor: middle;
             text-align: center;
-            background-color: white;
+            background-color: inherit;
             font-weight: bolder;
+            color: white;
         }
 
         .normal:active, .normal:hover {
@@ -48,6 +74,7 @@
             background-color: red;
             border-color: none;
             border-style: none;
+            color: white;
         }
 
         .cntr {
@@ -73,11 +100,21 @@
             max-width: 30px;
             max-height: 30px;
         }
+
+        .bolder {
+            font-weight: 1000;
+            text-align: center;
+        }
+
+        .darkbtn {
+            color: black;
+        }
 </style>
-    <body>
-        <nav class="nav drag">
+    <body id="lightdark" class="">
+        <nav id="mainnav" class="nav drag">
             <image class="center-fit" src="../images/logo.ico"/>
-            <h4 class="nodrag pad">Simple Host</h4>
+            <h4 class="nodrag pad center-float">Simple Host</h4>
+            <button id="mode" class="nodrag pad normal button bolder" style="text-align: center; margin-top: 2px;">🌒</button>
             <button id="minimiseBTN" class="nodrag pad right normal button" style="text-align: center;">-</button>
             <button id="dockBTN" class="nodrag pad normal button">▢</button>
             <button id="closeBTN" class="nodrag pad danger button" style="margin-right: 1px;">X</button>
