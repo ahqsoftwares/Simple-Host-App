@@ -1,6 +1,6 @@
 {
   "name": "simple-host-app",
-  "version": "v0.1.0",
+  "version": "v0.1.6",
   "description": "Simple Host Official Desktop App",
   "main": "src/index.js",
   "scripts": {
