@@ -1,22 +1,35 @@
-const {get, set} = require('./update');
+
+/*
+Require Modules
+*/
+const {set} = require('./update');
 const fetch = require("node-fetch");
 const os = require('os');
 const {ipcRenderer} = require("electron");
 const downloader = require("filedownloader");
 const AdmZip = require("adm-zip");
 const fs = require("fs");
+const path = require("path");
+
+/*
+Cross Platform Modules
+*/
 
 const platforms = {
     WINDOWS: '-win',
     MAC: '-mac',
     LINUX: ''
-  };
+};
   
-  const platformsNames = {
+const platformsNames = {
     win32: platforms.WINDOWS,
     darwin: platforms.MAC,
     linux: platforms.LINUX
-  };
+};
+
+/*
+Default Step
+*/
 
 let name = "Loading Update Check!";
 let status = -1;
@@ -28,6 +41,10 @@ set({
     "3": add
 });
 let json = "";
+
+/* 
+Main code
+*/
 
 fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest`).then(res => res.json()).then(data => {json = data}).catch(e => console.log(e)).then(async() => {
     let version = json[`tag_name`].split(".");
@@ -71,7 +88,7 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
                 "2": -1,
                 "3": 0
             });
-            var ezip = new AdmZip(process.cwd + "\\" + zip[`name`]);
+            var ezip = new AdmZip(path.join(process.cwd, zip[`name`]));
             ezip.getEntries().forEach(async(entry) => {
                 try {
                     ezip.extractEntryTo(entry, process.cwd(), true, true)
@@ -89,14 +106,14 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
 
             }, 2000);
             set({
-                "1": `Open App, After Its Closed!`,
+                "1": `Finalising, Open App after install!`,
                 "2": -1,
                 "3": 0
             });
             setTimeout(function(){
 
             }, 2000);
-            fs.unlink(process.env.HOMEPATH + "\\" + zip[`name`], function(err) {
+            fs.unlink(path.join(process.cwd(), zip[`name`]), function(err) {
                 if (err) console.log(err);
                 ipcRenderer.send("closeApp");
             });
@@ -113,3 +130,6 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
     }
 });
 
+/*
+Ending...
+*/
