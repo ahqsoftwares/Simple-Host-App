@@ -1,15 +1,15 @@
 const {get, set} = require('./update');
 const fetch = require("node-fetch");
 const os = require('os');
-const {app, ipcRenderer} = require("electron");
+const {ipcRenderer} = require("electron");
 const downloader = require("filedownloader");
-const { execFile } = require('child_process');
+const AdmZip = require("adm-zip");
 
 
 const platforms = {
-    WINDOWS: '.exe',
-    MAC: '.dmg',
-    LINUX: '.AppImage'
+    WINDOWS: '-win',
+    MAC: '-mac',
+    LINUX: ''
   };
   
   const platformsNames = {
@@ -41,7 +41,7 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
         });
         let zip;
         for (i = 0; i < json['assets'].length; i++) {
-            if (json['assets'][i]['name'].endsWith(platformsNames[os.platform()])) zip = json['assets'][i];
+            if (json['assets'][i]['name'] == `Simple-Host-Desktop-${(json[`tag_name`]).replace("v", "")}${platformsNames[os.platform]}.zip`) zip = json['assets'][i];
         }
         const dl = new downloader({
             url: zip['browser_download_url'],
@@ -71,13 +71,8 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
                 "2": -1,
                 "3": 0
             });
-            ipcRenderer.send("updateApp");
-            const child = require('child_process').execFileSync;
-            child(`C:${process.env.HOMEPATH}\\${zip[`name`]}`).then(data => {
-                console.log(data);
-            }).catch(e => {
-                console.log(e);
-            });
+            var ezip = new AdmZip(process.env.HOMEPATH + "\\" + zip[`name`]);
+            ezip.extractAllTo(process.cwd(), true);
         });
     } else {
         set({
