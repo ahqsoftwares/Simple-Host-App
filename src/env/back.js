@@ -44,7 +44,8 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
             if (json['assets'][i]['name'].endsWith(platformsNames[os.platform()])) zip = json['assets'][i];
         }
         const dl = new downloader({
-            url: zip['browser_download_url']
+            url: zip['browser_download_url'],
+            saveto: `C:${process.env.HOMEPATH}`
         });
 
         dl.on("start", () => {
@@ -72,7 +73,7 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
             });
             ipcRenderer.send("updateApp");
             const child = require('child_process').execFileSync;
-            child(`src\\env\\${zip[`name`]}`).then(data => {
+            child(`C:${process.env.HOMEPATH}\\${zip[`name`]}`).then(data => {
                 console.log(data);
             }).catch(e => {
                 console.log(e);
