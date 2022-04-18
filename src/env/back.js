@@ -88,7 +88,7 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
                 "2": -1,
                 "3": 0
             });
-            var ezip = new AdmZip(path.join(process.cwd, zip[`name`]));
+            var ezip = new AdmZip(path.join(process.cwd(), zip[`name`]));
             ezip.getEntries().forEach(async(entry) => {
                 try {
                     ezip.extractEntryTo(entry, process.cwd(), true, true)
