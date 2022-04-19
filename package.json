@@ -21,10 +21,8 @@
     "electron-store": "^8.0.1",
     "filedownloader": "^1.2.7",
     "node-fetch": "^2.6.7",
-    "octokit": "^1.7.1",
     "os": "^0.1.2",
     "path": "^0.12.7",
-    "shelljs": "^0.8.5",
-    "uaup-js": "^0.0.22"
+    "shelljs": "^0.8.5"
   }
 }
