@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain} = require("electron");
+const {app, BrowserWindow, ipcMain, dialog} = require("electron");
 require('electron-reload')(__dirname);
 /**
  * Main
@@ -23,8 +23,14 @@ app.whenReady().then(async() => {
         }
     });
     updater.loadFile("./src/modules/html/updater.html");
-
+    //updater.loadFile("index.html");
+    ipcMain.on("errorFile", (event, data) => {
+        dialog.showErrorBox(data.title, data.req);
+    });
     ipcMain.on("startMainApp", () => {
+        updater.loadFile("./src/modules/html/app.html");
+    });
+    ipcMain.on("loadWindow", () => {
         const main = new BrowserWindow({
             width: 1200,
             height: 800,

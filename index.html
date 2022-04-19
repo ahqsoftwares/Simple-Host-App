@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Host</title>
+        <link rel="icon" href="./rsc/app/icon.png">
+        <meta name="desctiption" content="Download Simple Host Desktop Application">
+        <meta name="image" href="./rsc/app/icon.png">
+    </head>
+
+    <!-- Body Page -->
+
+    <body style="background-color: white;">
+        <div class="bar" style="background-color: white;">
+            <image width="60px" src="./rsc/app/icon.png" style="margin-bottom: 0px;"></image>
+            <h2 style="color: darkblue;">Simple Host Downloader</h2>
+            <div class="download">
+                <a id="windows" href="https://www.github.com/ahqsoftwares/Simple-Host-App/releases/latest"><button style="color: darkblue;">Windows</button></a><a id="macos" href="https://www.github.com/ahqsoftwares/Simple-Host-App/releases/latest"><button style="color: silver;">Macos</button></a><a id="linux" href="https://www.github.com/ahqsoftwares/Simple-Host-App/releases/latest"><button style="color: orange;">Linux</button></a>
+            </div>
+        </div>
+    </body>
+
+    <!-- js code -->
+
+    <script defer>
+    const fetch = require("node-fetch");
+
+
+    let json;
+    fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest`).then(res => res.json()).then(data => {json = data}).catch(e => console.log(e)).then(async() => {
+        console.log(json);
+        console.log(windows);
+        console.log(windows.href);
+        for (i = 0; i < json[`assets`].length; i++) {
+            if ((json[`assets`][i][`name`]).endsWith(".exe")) {
+                windows.href = json[`assets`][i][`browser_download_url`]
+            }
+            if ((json[`assets`][i][`name`]).endsWith(".dmg")) {
+                macos.href = json[`assets`][i][`browser_download_url`]
+            }
+            if ((json[`assets`][i][`name`]).endsWith(".AppImage")) {
+                linux.href = json[`assets`][i][`browser_download_url`]
+            }
+        }
+    });
+    </script>
+
+    <!-- Styling -->
+
+    <style>
+        .bar{
+            text-align: center;
+        }
+
+        button {
+            margin: 2px;
+            padding: 6px;
+            width: 100px;
+            color: green;
+            border-color: darkblue;
+            background-color: green;
+        }
+
+        button:active, button:hover {
+            cursor: auto;
+            border-color: darkgreen;
+            background-color: yellow;
+            cursor: pointer;
+        }
+    </style>
+</html>
