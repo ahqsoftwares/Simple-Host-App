@@ -1,3 +1,16 @@
+const Store = require("electron-store");
+const store = new Store({
+    schema: {
+        remember: {
+            type: "boolean",
+            default: false
+        },
+        response: {
+            type: "string",
+            default: "null"
+        }
+    }
+});
 const {app, BrowserWindow, ipcMain, dialog} = require("electron");
 require('electron-reload')(__dirname);
 /**
@@ -5,6 +18,13 @@ require('electron-reload')(__dirname);
  */
 
 app.whenReady().then(async() => {
+    ipcMain.on("sendStore", (event, param) => {
+        store.set(param.tag, param.value);
+        event.reply("doneWorkStore");
+    });
+    ipcMain.on("getData", (event, key) => {
+        event.reply("getDatabase", store.get(key));
+    });
     ipcMain.on("closeApp", () => {
         app.quit()
     });
@@ -13,8 +33,8 @@ app.whenReady().then(async() => {
         height: 400,
         minWidth: 300,
         minHeight: 400,
-        maxHeight: 300,
-        maxWidth: 400,
+        maxHeight: 400,
+        maxWidth: 300,
         frame: false,
         webPreferences: {
             nodeIntegration: true,
