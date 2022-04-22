@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Alert: Starting Development\" && electron .",
-    "build": "echo `Alert: Starting Build` && electron-builder --config=build.js --publish=always"
+    "build": "electron-builder --config=build.js --publish=always"
   },
   "keywords": [],
   "author": "",

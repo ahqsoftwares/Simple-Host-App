@@ -1,5 +1,4 @@
 const {ipcRenderer} = require("electron");
-console.log(lightdark.classList);
 const ipc = ipcRenderer;
 
 /**
@@ -50,6 +49,36 @@ minimiseBTN.addEventListener("click", () => {
  */
 dockBTN.addEventListener("click", () => {
     ipc.send("dockApp");
+});
+
+rBot.addEventListener("click", () => {
+    const fetch = require("node-fetch");
+    ipcRenderer.send("errorFile", {
+        title: "Coming Soon!",
+        req: "Function Coming Soon!"
+    });
+});
+
+cBot.addEventListener("click", () => {
+    ipcRenderer.send("errorFile", {
+        title: "Coming Soon!",
+        req: "Function Coming Soon!"
+    });
+});
+
+brBot.addEventListener("click", () => {
+    const fetch = require("node-fetch");
+    ipcRenderer.send("errorFile", {
+        title: "Coming Soon!",
+        req: "Function Coming Soon!"
+    });
+});
+
+bcBot.addEventListener("click", () => {
+    ipcRenderer.send("errorFile", {
+        title: "Coming Soon!",
+        req: "Function Coming Soon!"
+    });
 });
 
 ipc.send("loadedMain");

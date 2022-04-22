@@ -18,7 +18,7 @@ module.exports = {
         uninstallerIcon: "src/modules/images/logo.ico"
     },
     linux: {
-        target: ["AppImage", "zip", "apk"]
+        target: ["AppImage", "zip"]
     },
     mac: {
         target: ["dmg", "zip"],
