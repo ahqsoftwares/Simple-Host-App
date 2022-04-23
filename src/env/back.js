@@ -10,6 +10,7 @@ const downloader = require("filedownloader");
 const AdmZip = require("adm-zip");
 const fs = require("fs");
 const path = require("path");
+const execute = require("child_process").exec;
 
 /*
 Cross Platform Modules
@@ -88,12 +89,12 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
                 "2": -1,
                 "3": 0
             });
+            let skipped = 0;
             var ezip = new AdmZip(path.join(process.cwd(), zip[`name`]));
             ezip.getEntries().forEach(async(entry) => {
                 try {
                     ezip.extractEntryTo(entry, process.cwd(), true, true)
                 } catch (e) {
-                    let skipped = 0;
                     skipped += 1;
                     set({
                         "1": `Skipped ${skipped} files on install...`,
@@ -103,20 +104,26 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
                 }
             });
             setTimeout(function(){
+                fs.unlink(path.join(process.cwd(), zip[`name`]), function(err) {
+                    if (err) console.log(err);
+                });
+                set({
+                    "1": `Finalising, Open App after install!`,
+                    "2": -1,
+                    "3": 0
+                });
+                execute(path.join(process.cwd(), `Simple Host Desktop`), function(our, error) {
+                    if (error) {
 
-            }, 2000);
-            set({
-                "1": `Finalising, Open App after install!`,
-                "2": -1,
-                "3": 0
-            });
+                    }
+                    if (our) {
+
+                    }
+                });
+            }, 5000);
             setTimeout(function(){
-
+                ipcRenderer.send("closeUpdater");
             }, 2000);
-            fs.unlink(path.join(process.cwd(), zip[`name`]), function(err) {
-                if (err) console.log(err);
-                ipcRenderer.send("closeApp");
-            });
         });
     } else {
         set({

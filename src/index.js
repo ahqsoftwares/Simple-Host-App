@@ -50,6 +50,9 @@ app.whenReady().then(async() => {
     ipcMain.on("errorFile", (event, data) => {
         dialog.showErrorBox(data.title, data.req);
     });
+    ipcMain.on("closeUpdater", () => {
+        updater.close()
+    });
     ipcMain.on("startMainApp", () => {
         updater.loadFile("./src/modules/html/app.html");
     });
