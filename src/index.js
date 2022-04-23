@@ -18,6 +18,9 @@ require('electron-reload')(__dirname);
  */
 
 app.whenReady().then(async() => {
+    app.on("all-window-closed", () => {
+        app.close()
+    });
     ipcMain.on("sendStore", (event, param) => {
         store.set(param.tag, param.value);
         event.reply("doneWorkStore");
