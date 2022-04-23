@@ -21,7 +21,7 @@ jobs:
                   node-version: "16.6.2"
 
             - name: Install dependencies
-              run: npm i . --force
+              run: npm i --save-dev @craco/craco && npm i . --force
 
             - name: Publish
               run: craco build
@@ -42,7 +42,7 @@ jobs:
               run: npm i . --force
 
             - name: Publish
-              run: craco build --x64 --ia32 -l
+              run: npm i --save-dev @craco/craco && craco build --x64 --ia32 -l
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -57,7 +57,7 @@ jobs:
                   node-version: "16.6.2"
 
             - name: Install dependencies
-              run: npm i . --force
+              run: npm i --save-dev @craco/craco && npm i . --force
 
             - name: Publish
               run: craco build --x64 -m

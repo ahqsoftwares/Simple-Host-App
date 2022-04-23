@@ -1,6 +1,6 @@
 {
   "name": "simple-host-app",
-  "version": "v0.5.10",
+  "version": "v0.5.91",
   "description": "Simple Host Official Desktop App",
   "main": "src/index.js",
   "scripts": {
@@ -14,10 +14,10 @@
     "electron": "^18.0.4",
     "electron-builder": "^23.0.3",
     "electron-forge": "^5.2.4",
-    "electron-updater": "^5.0.1"
+    "electron-updater": "^5.0.1",
+    "@craco/craco": "^6.4.3"
   },
   "dependencies": {
-    "@craco/craco": "^6.4.3",
     "electron-reload": "^2.0.0-alpha.1",
     "electron-store": "^8.0.1",
     "filedownloader": "^1.2.7",
