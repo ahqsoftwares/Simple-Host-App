@@ -24,7 +24,7 @@ jobs:
               run: npm i --save-dev @craco/craco && npm i . --force
 
             - name: Publish
-              run: craco build
+              run: npx build
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -42,7 +42,7 @@ jobs:
               run: npm i . --force
 
             - name: Publish
-              run: npm i --save-dev @craco/craco && craco build --x64 --ia32 -l
+              run: npm i --save-dev @craco/craco && npx craco build --x64 --ia32 -l
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -60,6 +60,6 @@ jobs:
               run: npm i --save-dev @craco/craco && npm i . --force
 
             - name: Publish
-              run: craco build --x64 -m
+              run: npx craco build --x64 -m
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
