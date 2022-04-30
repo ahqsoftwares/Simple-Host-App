@@ -42,7 +42,7 @@ app.whenReady().then(async() => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            devTools: true
+            devTools: false
         }
     });
     updater.loadFile("./src/modules/html/updater.html");
@@ -66,7 +66,7 @@ app.whenReady().then(async() => {
             webPreferences: {
                 nodeIntegration: true,
                 contextIsolation: false,
-                devTools: true
+                devTools: false
             }
         });
         main.loadFile("./src/modules/html/main.html");
