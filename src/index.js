@@ -49,7 +49,7 @@ app.whenReady().then(async() => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            devTools: true
+            devTools: false
         }
     });
     updater.loadFile("./src/modules/html/intro.html");
