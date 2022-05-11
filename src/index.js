@@ -8,6 +8,10 @@ const store = new Store({
         response: {
             type: "string",
             default: "null"
+        },
+        dark: {
+            type: "boolean",
+            default: false
         }
     }
 });
@@ -31,6 +35,9 @@ app.whenReady().then(async() => {
     ipcMain.on("closeApp", () => {
         app.quit()
     });
+    ipcMain.on("darkStore", (event) => {
+        event.reply("dark_data", store.get("dark"));
+    });
     const updater = new BrowserWindow({
         width: 300,
         height: 400,
@@ -42,11 +49,14 @@ app.whenReady().then(async() => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            devTools: false
+            devTools: true
         }
     });
-    updater.loadFile("./src/modules/html/updater.html");
+    updater.loadFile("./src/modules/html/intro.html");
     //updater.loadFile("index.html");
+    ipcMain.on("loadMainWindowUpdater", () => {
+        updater.loadFile("./src/modules/html/updater.html");
+    });
     ipcMain.on("errorFile", (event, data) => {
         dialog.showErrorBox(data.title, data.req);
     });

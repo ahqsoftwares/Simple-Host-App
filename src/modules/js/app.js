@@ -3,22 +3,6 @@ const {
 } = require("electron");
 let response;
 
-
-ipcRenderer.send("getData", "response");
-ipcRenderer.on("getDatabase", async(event, data) => {
-    if (data !== "null") {
-        fetch(`http://dino-gg.daki.cc:4037/login?code=${data}`).then(data => data.json()).then(data => {response = data}).catch(e => console.log(e)).then(async() => {
-            if (response.type == "Logged In!") {
-                ipcRenderer.send("sendStore", ({
-                    tag: "remember",
-                    value: true
-                }));
-                ipcRenderer.send("loadWindow");
-            }
-        });
-    }
-});
-
 confirmbtn.addEventListener("click", async() => {
     const fetch = require("node-fetch");
     console.log(idbox.value.length);
