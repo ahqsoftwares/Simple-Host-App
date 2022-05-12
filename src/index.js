@@ -49,7 +49,7 @@ app.whenReady().then(async() => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            devTools: true
+            devTools: false
         }
     });
     updater.loadFile("./src/modules/html/intro.html");
@@ -80,6 +80,16 @@ app.whenReady().then(async() => {
             }
         });
         main.loadFile("./src/modules/html/main.html");
+        
+        ipcMain.on("infoBox", (event, data) => {
+            dialog.showMessageBox(main, data.opt).then(res => {
+                console.log(res);
+                event.reply(data.replyId, res);
+            });
+        });
+        ipcMain.on("loadAgain", () => {
+            main.loadFile("./src/modules/html/main.html");
+        });
         ipcMain.on("dockApp", () => {
             if (main.isMaximized()) {
                 main.unmaximize()

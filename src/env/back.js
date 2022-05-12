@@ -125,7 +125,15 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
             "2": -1,
             "3": 0
         });
-        setInterval(function() {
+        await fetch(`http://dino-gg.daki.cc:4037/logged`).then(data => data.json()).then(content => {
+            if (content.status == 1) {
+                setTimeout(async function() {
+                    ipcRenderer.send(`loadWindow`);
+                    return
+                }, 3000);
+            }
+        });
+        setTimeout(function() {
             ipcRenderer.send("getData", "response");
             ipcRenderer.on("getDatabase", async(event, data) => {
             if (data !== "null") {

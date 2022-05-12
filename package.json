@@ -1,6 +1,6 @@
 {
   "name": "simple-host-app",
-  "version": "v0.6.1",
+  "version": "v1.0.0",
   "description": "Simple Host Official Desktop App",
   "main": "src/index.js",
   "scripts": {
@@ -8,11 +8,11 @@
     "build": "electron-builder --config=build.js --publish=always"
   },
   "keywords": [],
-  "author": "",
+  "author": "AHQ Softwares & Simple Host Devs",
   "license": "ISC",
   "devDependencies": {
     "@craco/craco": "^6.4.3",
-    "electron": "^18.2.0",
+    "electron": "^18.2.3",
     "electron-builder": "^23.0.3",
     "electron-forge": "^5.2.4",
     "electron-updater": "^5.0.1"
