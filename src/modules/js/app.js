@@ -12,7 +12,7 @@ confirmbtn.addEventListener("click", async() => {
             req: "Login ID Must be of 17 digits"
         });
     } else {
-        fetch(`http://dino.daki.cc:4061//login?code=${idbox.value}`).then(data => data.json()).then(data => {response = data}).catch(e => console.log(e)).then(async() => {
+        fetch(`http://dino.daki.cc:4061/login?code=${idbox.value}`).then(data => data.json()).then(data => {response = data}).catch(e => console.log(e)).then(async() => {
             if (response.type == "Error") {
                 ipcRenderer.send("errorFile", {
                     title: response.title,
