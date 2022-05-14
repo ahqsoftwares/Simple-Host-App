@@ -114,7 +114,7 @@ rBot.addEventListener("click", async() => {
             return;
         }
         const fetch = require("node-fetch");
-        await fetch(`http://dino-gg.daki.cc:4037/action?action=2&bot=1`).then(data => data.json()).then(async(res) => {
+        await fetch(`http://dino.daki.cc:4061/action?action=2&bot=1`).then(data => data.json()).then(async(res) => {
             if (res.type == "Error") {
                 ipcRenderer.send("errorFile", {
                     title: res.title,
@@ -145,7 +145,7 @@ rBot.addEventListener("click", async() => {
 
 cBot.addEventListener("click", async() => {
     const fetch = require("node-fetch");
-    await fetch(`http://dino-gg.daki.cc:4037/action?action=1&bot=1`).then(data => data.json()).then(async(res) => {
+    await fetch(`http://dino.daki.cc:4061/action?action=1&bot=1`).then(data => data.json()).then(async(res) => {
         if (res.type == "Error") {
             ipcRenderer.send("errorFile", {
                 title: res.title,
@@ -188,7 +188,7 @@ ipc.send("infoBox", {
             return;
         }
         const fetch = require("node-fetch");
-        await fetch(`http://dino-gg.daki.cc:4037/action?action=2&bot=2`).then(data => data.json()).then(async(res) => {
+        await fetch(`http://dino.daki.cc:4061/action?action=2&bot=2`).then(data => data.json()).then(async(res) => {
             if (res.type == "Error") {
                 ipcRenderer.send("errorFile", {
                     title: res.title,
@@ -219,7 +219,7 @@ ipc.send("infoBox", {
 
 bcBot.addEventListener("click", async() => {
     const fetch = require("node-fetch");
-    await fetch(`http://dino-gg.daki.cc:4037/action?action=1&bot=2`).then(data => data.json()).then(async(res) => {
+    await fetch(`http://dino.daki.cc:4061/action?action=1&bot=2`).then(data => data.json()).then(async(res) => {
         if (res.type == "Error") {
             ipcRenderer.send("errorFile", {
                 title: res.title,
