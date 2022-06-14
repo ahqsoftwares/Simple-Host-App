@@ -125,41 +125,9 @@ fetch(`https://api.github.com/repos/ahqsoftwares/Simple-Host-App/releases/latest
             "2": -1,
             "3": 0
         });
-        await fetch(`http://dino.daki.cc:4061/logged`).then(data => data.json()).then(content => {
-            if (content.status == 1) {
-                setTimeout(async function() {
-                    ipcRenderer.send(`loadWindow`);
-                    return
-                }, 3000);
-            }
-        });
         setTimeout(function() {
-            ipcRenderer.send("getData", "response");
-            ipcRenderer.on("getDatabase", async(event, data) => {
-            if (data !== "null") {
-                fetch(`http://dino.daki.cc:4061/login?code=${data}`).then(data => data.json()).then(data => {response = data}).catch(e => console.log(e)).then(async() => {
-                    if (response.type == "Logged In!") {
-                        ipcRenderer.send("sendStore", ({
-                                tag: "remember",
-                                value: true
-                            }));
-                            ipcRenderer.send("loadWindow");
-                        } else {
-                            set({
-                                "1": "Please log in!",
-                                "2": -1,
-                                "3": 0
-                            });
-                            setTimeout(async function() {
-                                ipcRenderer.send("startMainApp");
-                            }, 3000);
-                        }
-                    });
-                } else {
-                    ipcRenderer.send("startMainApp");
-                }
-            });
-        }, 3000);
+           ipcRenderer.send("loadWindow");
+        }, 0);
     }
 });
 

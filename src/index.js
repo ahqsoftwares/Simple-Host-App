@@ -22,6 +22,7 @@ require('electron-reload')(__dirname);
  */
 
 app.whenReady().then(async() => {
+    app.commandLine.appendSwitch('ignore-certificate-errors');
     app.on("all-window-closed", () => {
         app.close()
     });
@@ -68,18 +69,20 @@ app.whenReady().then(async() => {
     });
     ipcMain.on("loadWindow", () => {
         const main = new BrowserWindow({
-            width: 1200,
+            width: 1600,
             height: 800,
-            minWidth: 800,
+            minWidth: 1600,
             minHeight: 600,
-            frame: false,
             webPreferences: {
                 nodeIntegration: true,
                 contextIsolation: false,
-                devTools: false
-            }
+                devTools: true
+            },
+            titleBarStyle: "hidden",
+            titleBarOverlay: true
         });
-        main.loadFile("./src/modules/html/main.html");
+        main.loadURL("https://simple-host.cf/");
+        main.maximize();
         
         ipcMain.on("infoBox", (event, data) => {
             dialog.showMessageBox(main, data.opt).then(res => {
@@ -97,14 +100,13 @@ app.whenReady().then(async() => {
                 main.maximize()
             }
         });
-        ipcMain.on("loadedMain", (event) => {
-            main.on("maximize", () => {
-                event.reply("max");
-            });
-            main.on("unmaximize", () => {
-                event.reply("min");
-            });
+        main.on("restore", () => {
+            main.maximize()
         });
+        main.on("unmaximize", () => {
+            main.maximize()
+        });
+
         ipcMain.on("minimiseApp", () => {
             main.minimize()
         });

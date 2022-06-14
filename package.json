@@ -1,7 +1,7 @@
 {
   "name": "simple-host-app",
-  "version": "v1.1.1",
-  "description": "Simple Host Official Desktop App",
+  "version": "v2.0.0",
+  "description": "Simple Host v2 Official Desktop App",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Alert: Starting Development\" && electron .",
