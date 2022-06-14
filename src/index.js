@@ -74,7 +74,7 @@ app.whenReady().then(async() => {
             minWidth: 1600,
             minHeight: 600,
             webPreferences: {
-                nodeIntegration: true,
+                nodeIntegration: false,
                 contextIsolation: false,
                 devTools: true
             },
