@@ -11,7 +11,7 @@
   "author": "AHQ Softwares & Simple Host Devs",
   "license": "ISC",
   "devDependencies": {
-    "@craco/craco": "^6.4.3",
+    "@craco/craco": "^7.0.0",
     "electron": "^18.2.3",
     "electron-builder": "^23.0.3",
     "electron-forge": "^5.2.4",
