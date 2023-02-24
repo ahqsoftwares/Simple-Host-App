@@ -81,7 +81,7 @@ app.whenReady().then(async() => {
             titleBarStyle: "hidden",
             titleBarOverlay: true
         });
-        main.loadURL("https://simple-host.cf/");
+        main.loadURL("https://simplehost.ml/");
         main.maximize();
         
         ipcMain.on("infoBox", (event, data) => {
