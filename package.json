@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@craco/craco": "^6.4.3",
-    "electron": "^18.2.3",
+    "electron": "^18.3.7",
     "electron-builder": "^23.0.3",
     "electron-forge": "^5.2.4",
     "electron-updater": "^5.0.1"
